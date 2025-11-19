@@ -1,0 +1,13 @@
+# Fruit API Query Parameters
+# Format: TC###: param1=value1&param2=value2
+
+# Valid query params
+FA001: type=seasonal&color=yellow
+FA002: type=tropical&color=orange
+FA003: type=seasonal&color=red
+FA004: type=exotic&color=green
+FA005: type=seasonal&color=yellow&organic=true
+
+# Invalid query params for negative testing
+FA006: type=invalid&color=unknown
+FA007: type=&color=

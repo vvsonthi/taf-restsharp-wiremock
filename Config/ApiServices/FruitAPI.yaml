@@ -1,0 +1,40 @@
+apiName: FruitAPI
+baseUrl: https://prod-fruit-api.com     # Real API (default)
+wireMockUrl: http://localhost:9091      # WireMock server for mocking
+timeout: 8000
+
+environments:
+  dev:
+    baseUrl: https://dev-fruit-api.com
+    wireMockUrl: http://localhost:9091
+    timeout: 10000
+
+  test:
+    baseUrl: https://test-fruit-api.com
+    wireMockUrl: http://localhost:9093   # Different port for test env
+    timeout: 8000
+
+  prod:
+    baseUrl: https://prod-fruit-api.com
+    wireMockUrl: http://localhost:9091   # Available for local prod testing
+    timeout: 15000
+
+endpoints:
+  AddFruit:
+    path: /api/fruits/add
+    method: POST
+    description: Add a new fruit to the inventory
+
+  GetAllFruits:
+    path: /api/fruits
+    method: GET
+    description: Get all fruits from inventory
+
+  GetFruitById:
+    path: /api/fruits/{id}
+    method: GET
+    description: Get specific fruit by ID
+
+defaultHeaders:
+  Accept: application/json
+  Content-Type: application/json

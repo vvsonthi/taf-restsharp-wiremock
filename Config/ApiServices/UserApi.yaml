@@ -1,7 +1,8 @@
 # User API Service Configuration
 apiName: UserAPI
 description: ReqRes User API for testing
-baseUrl: https://reqres.in
+baseUrl: https://reqres.in                  # Real API (default)
+wireMockUrl: http://localhost:9091          # WireMock server for mocking
 timeout: 8000
 retryCount: 3
 connectionString: ""
@@ -10,22 +11,27 @@ connectionString: ""
 environments:
   dev:
     baseUrl: https://dev-reqres.in
+    wireMockUrl: http://localhost:9091
     timeout: 10000
 
   test:
     baseUrl: https://test-reqres.in
+    wireMockUrl: http://localhost:9093       # Different port for test env
     timeout: 8000
 
   qa:
     baseUrl: https://qa-reqres.in
+    wireMockUrl: http://localhost:9095       # Different port for QA env
     timeout: 8000
 
   staging:
     baseUrl: https://staging-reqres.in
+    wireMockUrl: http://localhost:9097       # Different port for staging env
     timeout: 12000
 
   prod:
     baseUrl: https://reqres.in
+    wireMockUrl: http://localhost:9091       # Available for local prod testing
     timeout: 15000
 
 # Endpoints configuration

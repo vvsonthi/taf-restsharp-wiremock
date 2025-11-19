@@ -1,0 +1,19 @@
+{
+  "name": "Mango",
+  "scientificName": "Mangifera indica",
+  "color": "yellow",
+  "type": "seasonal",
+  "origin": "India",
+  "weight": 250,
+  "pricePerKg": 3.99,
+  "inStock": true,
+  "harvestDate": "2024-06-15",
+  "nutritionalInfo": {
+    "calories": 60,
+    "protein": 0.8,
+    "carbs": 15,
+    "fiber": 1.6,
+    "vitaminC": 36.4
+  },
+  "tags": ["tropical", "sweet", "juicy"]
+}

@@ -7,6 +7,7 @@ namespace TafRestSharpWireMock.Tests.Models
         public string ApiName { get; set; }
         public string Description { get; set; }
         public string BaseUrl { get; set; }
+        public string WireMockUrl { get; set; }  // WireMock server URL for mocking
         public int Timeout { get; set; }
         public int RetryCount { get; set; }
         public string ConnectionString { get; set; }
@@ -28,6 +29,7 @@ namespace TafRestSharpWireMock.Tests.Models
     public class EnvironmentConfig
     {
         public string BaseUrl { get; set; }
+        public string WireMockUrl { get; set; }  // Environment-specific WireMock URL
         public int? Timeout { get; set; }
         public string ConnectionString { get; set; }
     }

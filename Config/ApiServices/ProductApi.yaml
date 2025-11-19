@@ -1,7 +1,8 @@
 # Product API Service Configuration
 apiName: ProductAPI
 description: E-commerce Product API
-baseUrl: https://api.example.com
+baseUrl: https://api.example.com           # Real API (default)
+wireMockUrl: http://localhost:9091          # WireMock server for mocking
 timeout: 10000
 retryCount: 2
 connectionString: "Server=prod-db;Database=Products;"
@@ -10,16 +11,19 @@ connectionString: "Server=prod-db;Database=Products;"
 environments:
   dev:
     baseUrl: https://dev-api.example.com
+    wireMockUrl: http://localhost:9091
     timeout: 15000
     connectionString: "Server=dev-db;Database=Products;"
 
   test:
     baseUrl: https://test-api.example.com
+    wireMockUrl: http://localhost:9093      # Different port for test env
     timeout: 12000
     connectionString: "Server=test-db;Database=Products;"
 
   prod:
     baseUrl: https://api.example.com
+    wireMockUrl: http://localhost:9091      # Available for local prod testing
     timeout: 8000
     connectionString: "Server=prod-db;Database=Products;"
 

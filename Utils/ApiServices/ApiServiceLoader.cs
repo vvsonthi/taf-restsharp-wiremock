@@ -56,11 +56,13 @@ namespace TafRestSharpWireMock.Tests.Utils.ApiServices
 
         /// <summary>
         /// Applies environment-specific overrides to the configuration
+        /// Also checks UseWireMock flag to determine if WireMock URL should be used
         /// </summary>
         private static void ApplyEnvironmentOverrides(ApiServiceConfig config)
         {
             var currentEnv = ConfigurationManager.Instance.CurrentEnvironment;
 
+            // Apply environment-specific overrides first
             if (config.Environments != null && config.Environments.ContainsKey(currentEnv))
             {
                 var envConfig = config.Environments[currentEnv];
@@ -69,6 +71,12 @@ namespace TafRestSharpWireMock.Tests.Utils.ApiServices
                 if (!string.IsNullOrWhiteSpace(envConfig.BaseUrl))
                 {
                     config.BaseUrl = envConfig.BaseUrl;
+                }
+
+                // Override WireMock URL if specified
+                if (!string.IsNullOrWhiteSpace(envConfig.WireMockUrl))
+                {
+                    config.WireMockUrl = envConfig.WireMockUrl;
                 }
 
                 // Override timeout if specified
@@ -82,6 +90,15 @@ namespace TafRestSharpWireMock.Tests.Utils.ApiServices
                 {
                     config.ConnectionString = envConfig.ConnectionString;
                 }
+            }
+
+            // Check if we should use WireMock instead of real API
+            bool useWireMock = ConfigurationManager.Instance.GetConfigValue<bool>("UseWireMock");
+
+            if (useWireMock && !string.IsNullOrWhiteSpace(config.WireMockUrl))
+            {
+                System.Console.WriteLine($"[ApiServiceLoader] UseWireMock=true, switching {config.ApiName} baseUrl from '{config.BaseUrl}' to WireMock '{config.WireMockUrl}'");
+                config.BaseUrl = config.WireMockUrl;  // Override with WireMock URL
             }
         }
 
