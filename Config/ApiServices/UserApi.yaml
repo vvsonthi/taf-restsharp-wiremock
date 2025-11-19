@@ -1,0 +1,93 @@
+# User API Service Configuration
+apiName: UserAPI
+description: ReqRes User API for testing
+baseUrl: https://reqres.in
+timeout: 8000
+retryCount: 3
+connectionString: ""
+
+# Environment-specific overrides
+environments:
+  dev:
+    baseUrl: https://dev-reqres.in
+    timeout: 10000
+
+  test:
+    baseUrl: https://test-reqres.in
+    timeout: 8000
+
+  qa:
+    baseUrl: https://qa-reqres.in
+    timeout: 8000
+
+  staging:
+    baseUrl: https://staging-reqres.in
+    timeout: 12000
+
+  prod:
+    baseUrl: https://reqres.in
+    timeout: 15000
+
+# Endpoints configuration
+endpoints:
+  # GET endpoints
+  GetAllUsers:
+    path: /api/users
+    method: GET
+    description: Get list of all users with pagination
+
+  GetUserById:
+    path: /api/users/{id}
+    method: GET
+    description: Get a specific user by ID
+
+  GetUserDelayed:
+    path: /api/users
+    method: GET
+    description: Get users with delayed response
+    timeout: 15000  # Override for this specific endpoint
+
+  # POST endpoints
+  CreateUser:
+    path: /api/users
+    method: POST
+    description: Create a new user
+
+  RegisterUser:
+    path: /api/register
+    method: POST
+    description: Register a new user
+
+  LoginUser:
+    path: /api/login
+    method: POST
+    description: Login user
+
+  # PUT endpoints
+  UpdateUser:
+    path: /api/users/{id}
+    method: PUT
+    description: Update an existing user (full update)
+
+  # PATCH endpoints
+  PartialUpdateUser:
+    path: /api/users/{id}
+    method: PATCH
+    description: Partially update an existing user
+
+  # DELETE endpoints
+  DeleteUser:
+    path: /api/users/{id}
+    method: DELETE
+    description: Delete a user by ID
+
+# Additional headers specific to this API
+defaultHeaders:
+  Accept: application/json
+  X-API-Source: TAF-RestSharp-WireMock
+
+# Authentication configuration
+authentication:
+  type: none  # Options: none, apiKey, bearer, basic
+  apiKeyHeader: X-API-Key
+  apiKeyValue: ""

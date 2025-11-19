@@ -1,0 +1,95 @@
+# Product API Service Configuration
+apiName: ProductAPI
+description: E-commerce Product API
+baseUrl: https://api.example.com
+timeout: 10000
+retryCount: 2
+connectionString: "Server=prod-db;Database=Products;"
+
+# Environment-specific overrides
+environments:
+  dev:
+    baseUrl: https://dev-api.example.com
+    timeout: 15000
+    connectionString: "Server=dev-db;Database=Products;"
+
+  test:
+    baseUrl: https://test-api.example.com
+    timeout: 12000
+    connectionString: "Server=test-db;Database=Products;"
+
+  prod:
+    baseUrl: https://api.example.com
+    timeout: 8000
+    connectionString: "Server=prod-db;Database=Products;"
+
+# Endpoints configuration
+endpoints:
+  # GET endpoints
+  GetAllProducts:
+    path: /api/v1/products
+    method: GET
+    description: Get all products with pagination
+    timeout: 12000
+
+  GetProductById:
+    path: /api/v1/products/{id}
+    method: GET
+    description: Get product by ID
+
+  GetProductsByCategory:
+    path: /api/v1/products/category/{categoryId}
+    method: GET
+    description: Get products by category
+
+  SearchProducts:
+    path: /api/v1/products/search
+    method: GET
+    description: Search products by keyword
+
+  # POST endpoints
+  CreateProduct:
+    path: /api/v1/products
+    method: POST
+    description: Create a new product
+
+  # PUT endpoints
+  UpdateProduct:
+    path: /api/v1/products/{id}
+    method: PUT
+    description: Update product details
+
+  # PATCH endpoints
+  UpdateProductPrice:
+    path: /api/v1/products/{id}/price
+    method: PATCH
+    description: Update only product price
+
+  UpdateProductStock:
+    path: /api/v1/products/{id}/stock
+    method: PATCH
+    description: Update product stock level
+
+  # DELETE endpoints
+  DeleteProduct:
+    path: /api/v1/products/{id}
+    method: DELETE
+    description: Delete a product
+
+  ArchiveProduct:
+    path: /api/v1/products/{id}/archive
+    method: DELETE
+    description: Archive a product (soft delete)
+
+# Additional headers specific to this API
+defaultHeaders:
+  Accept: application/json
+  Content-Type: application/json
+  X-API-Version: v1
+  X-Client-Name: TAF-RestSharp
+
+# Authentication configuration
+authentication:
+  type: apiKey
+  apiKeyHeader: X-API-Key
+  apiKeyValue: PRODUCT-API-KEY-12345

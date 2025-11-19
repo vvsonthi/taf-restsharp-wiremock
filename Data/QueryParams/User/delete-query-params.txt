@@ -1,0 +1,34 @@
+# DELETE Query Parameters
+# Format: TC<number>: param1=value1&param2=value2
+
+# Soft delete vs hard delete
+TC1: soft=true
+TC2: hard=true&permanent=true
+TC3: archive=true
+
+# Cascade delete
+TC4: cascade=true
+TC5: deleteRelated=true&relations=profile,orders
+
+# Force delete
+TC6: force=true
+TC7: force=true&bypass=true
+
+# Backup before delete
+TC8: backup=true
+TC9: backup=true&backupLocation=s3
+
+# Notification on delete
+TC10: notifyUser=true
+TC11: notifyAdmin=true&reason=Policy%20violation
+
+# Scheduled deletion
+TC12: scheduleDelete=true&deleteAt=2024-12-31
+TC13: delay=86400
+
+# Bulk delete
+TC14: bulkDelete=true&confirmAll=true
+TC15: batchId=batch_001
+
+# Audit
+TC16: auditDelete=true&deletedBy=admin

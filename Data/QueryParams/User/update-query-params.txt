@@ -1,0 +1,31 @@
+# PUT/PATCH Query Parameters
+# Format: TC<number>: param1=value1&param2=value2
+
+# Update options
+TC1: merge=true
+TC2: overwrite=true
+TC3: partial=true
+
+# Versioning
+TC4: version=2
+TC5: createVersion=true&comment=Updated%20user%20details
+
+# Notification on update
+TC6: notifyUser=true
+TC7: notifyUser=true&notifyAdmin=false
+
+# Audit trail
+TC8: auditLog=true&reason=User%20requested%20change
+TC9: trackChanges=true
+
+# Conditional updates
+TC10: ifMatch=etag12345
+TC11: lastModified=2024-01-15T10:30:00
+
+# Cascade operations
+TC12: cascade=true
+TC13: updateRelated=true&relations=profile,settings
+
+# Lock management
+TC14: unlock=true
+TC15: acquireLock=true&timeout=30

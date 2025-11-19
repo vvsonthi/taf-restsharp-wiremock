@@ -1,0 +1,42 @@
+# User Query Parameters
+# Format: TC<number>: param1=value1&param2=value2
+
+# Basic pagination tests
+TC1: page=1
+TC2: page=2
+TC3: page=1&per_page=5
+
+# Filter tests
+TC4: name=john&age=25
+TC5: status=active&role=admin
+TC6: email=test@example.com
+
+# Sorting tests
+TC7: sort=asc&orderBy=name
+TC8: sort=desc&orderBy=createdAt
+
+# Search tests
+TC9: search=morpheus
+TC10: search=george&page=1
+
+# Combined parameters
+TC11: page=2&per_page=10&sort=asc
+TC12: name=jane&age=30&status=active
+
+# Empty/No params
+TC13:
+
+# Special characters (URL encoded)
+TC14: name=John%20Doe&email=john%40example.com
+
+# Multiple values (comma-separated)
+TC15: ids=1,2,3,4,5
+TC16: roles=admin,user,guest
+
+# Date range filters
+TC17: startDate=2024-01-01&endDate=2024-12-31
+TC18: createdAfter=2024-01-01
+
+# Boolean parameters
+TC19: active=true&verified=false
+TC20: includeDeleted=true

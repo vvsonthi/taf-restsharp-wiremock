@@ -1,0 +1,32 @@
+# POST Query Parameters
+# Format: TC<number>: param1=value1&param2=value2
+
+# Notification parameters
+TC1: sendEmail=true
+TC2: sendEmail=false&sendSMS=true
+TC3: notify=all
+
+# Version control
+TC4: version=1
+TC5: version=2&draft=true
+
+# Source tracking
+TC6: source=web
+TC7: source=mobile&platform=ios
+TC8: source=api&apiVersion=v2
+
+# Import/Bulk operations
+TC9: bulkMode=true
+TC10: importId=12345&validate=true
+
+# Async operations
+TC11: async=true
+TC12: async=true&callback=https://example.com/webhook
+
+# Metadata
+TC13: createdBy=admin
+TC14: tags=test,automation,api
+
+# Validation flags
+TC15: skipValidation=false
+TC16: strictMode=true&validateSchema=true

@@ -1,0 +1,29 @@
+# Request Headers
+# Format: TC<number>: Header1=Value1&Header2=Value2
+
+# Common request headers
+TC001: Accept=application/json
+TC002: Accept=application/json&Content-Type=application/json
+TC003: Accept=application/xml
+TC004: Accept=application/json&Authorization=Bearer token123
+TC005: Content-Type=application/json&X-API-Version=v1
+
+# Custom headers
+TC006: X-Request-ID=12345&X-Client-ID=test-client
+TC007: X-Correlation-ID=abc-def-ghi&Accept=application/json
+TC008: X-Custom-Header=CustomValue&Accept=application/json
+
+# Authentication headers
+TC009: Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+TC010: X-API-Key=secret-api-key-12345
+
+# Multiple accept types
+TC011: Accept=application/json,application/xml,text/html
+
+# Cache control
+TC012: Cache-Control=no-cache&Accept=application/json
+TC013: Cache-Control=max-age=3600&If-None-Match=etag123
+
+# Content negotiation
+TC014: Accept-Language=en-US&Accept-Encoding=gzip,deflate
+TC015: Accept-Charset=utf-8&Accept=application/json
