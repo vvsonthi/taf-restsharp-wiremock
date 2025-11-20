@@ -1,0 +1,186 @@
+1. Status-Code Assertions:
+    Then the response status should be 200
+    Then the status code should be 201 Created
+    Then the API should return 400 Bad Request
+    Then I should receive a 404 Not Found
+
+2. Response Body Assertions:
+    Then the response body should contain "success"
+    Then "message" field should equal "User created"
+    Then the "id" should not be null
+    Then the "price" should be greater than 0
+    Then "enabled" should be true
+    Then the response array should have 10 items
+    Then "user.address.city" should be "London"
+
+3. Schema Validation:
+    Then the response should match the user schema
+    Then the response JSON should follow the contract definition
+    Then all fields defined in the schema must be present
+
+4. Header Assertions:
+    Then the response header "Content-Type" should be "application/json"
+    Then the "X-Request-ID" header should exist
+    Then the caching header should be disabled
+
+5. Cookie Assertions:
+    Then the response should include a session cookie
+    Then cookie "auth_token" should be valid
+
+6. Time / Performance Assertions:
+    Then the response time should be under 500ms
+    Then the API should respond within SLA limits
+
+7. Database / Side-Effect Assertions:
+    Then the user should exist in the database
+    Then the order count should increase by 1
+    Then the email should be sent
+    Then the record should be deleted
+
+8. Contract / Versioning Assertions:
+    Then the API version should be "v2"
+    Then deprecated fields should not exist
+
+9. Business Logic Assertions:
+    Then the loan application should be rejected because income < limit
+    Then discounts should be applied
+    Then user roles should be updated correctly
+
+10. Security Assertions:
+    Then authentication should be required
+    Then the API should reject invalid tokens
+    Then sensitive fields should never appear in the response
+
+11. Pagination Assertions:
+    Then the response should include a next page token
+    Then "page" should be 1
+    Then the "totalPages" value should be greater than 5
+    Then the "items" array should contain at most 20 elements
+
+12. Sorting & Ordering Assertions:
+    Then the results should be sorted alphabetically
+    Then the timestamps should be in descending order
+    Then the prices should be sorted lowest to highest
+
+13. Filtering Assertions:
+    Then only active users should be returned
+    Then every item in the response should have category "Books"
+    Then no results should contain archived records
+
+14. Duplication / Uniqueness Assertions:
+    Then all returned IDs should be unique
+    Then the list should not contain duplicate emails
+
+15. Null / Empty Handling Assertions:
+    Then the response body should not be empty
+    Then the "notes" field should be null
+    Then the array should be empty
+    Then missing optional fields should not cause errors
+
+16. Error-Message Assertions:
+    Then the error message should be "Invalid credentials"
+    Then the API should return a validation error for missing email
+    Then the error code should be "AUTH_001"
+
+17. Retry / Idempotency Assertions:
+    Then repeating the request should return the same result
+    Then the operation should not create duplicates when retried
+    Then the PUT request should replace the existing resource
+
+18. Rate Limiting Assertions:
+    Then the API should return 429 Too Many Requests
+    Then rate limit headers should be included
+    Then remaining quota should decrease after each call
+
+19. Authorization & Role-Based Assertions:
+    Then an admin should be allowed to access this endpoint
+    Then a normal user should not access this resource
+    Then the request should fail without a token
+
+20. Environment Configuration Assertions:
+    Then staging should use mocked payment data
+    Then the base URL should be correct for production
+    Then debug headers should not appear in production
+
+21. Multi-Step Workflow Assertions:
+    Then the resource created in step 1 should be retrievable
+    Then the status should update after running step 2
+    Then cancelling the order should refund the payment
+
+22. Webhook / Event Assertions:
+    Then the webhook should be triggered
+    Then the event payload should contain the correct ID
+    Then no duplicate events should be sent
+
+23. File Download / Upload Assertions:
+    Then the file type should be PDF
+    Then the uploaded file size should match the expected size
+    Then the file content should not be corrupted
+
+24. Localization / Internationalization Assertions:
+    Then the response message should be in Spanish
+    Then the price format should follow EU currency rules
+    Then dates should use the locale “en-GB”
+
+25. Data Transformation Assertions:
+    Then the API should convert the amount to cents
+    Then the formatted output should match the expected pattern
+    Then the "fullName" should combine firstName and lastName
+
+26. Cache Validation:
+    Then the response should be cached
+    Then the ETag value should match the previous request
+    Then the cache should refresh after an update
+
+27. Concurrency & Locking Assertions:
+    Then only one request should succeed
+    Then the item should be locked during update
+    Then concurrent updates should be rejected
+
+28. Redirection Assertions:
+    Then the API should redirect to the login page
+    Then the 301 location header should match the new URL
+
+29. Version Compatibility Assertions:
+    Then v1 responses should still be supported
+    Then deprecated endpoints should return warnings
+    Then v2 responses should include additional fields
+
+30. Analytics / Tracking Assertions:
+    Then a tracking event should be logged
+    Then the usage metrics should increment
+    Then the audit log should record the change
+
+
+| #  | Category                                       | Assertions                                                                                       |
+| -- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| 1  | Status-Code Assertions                         | 200, 201 Created, 400 Bad Request, 404 Not Found                                                 |
+| 2  | Response Body Assertions                       | "success", message="User created", id≠null, price>0, enabled=true, array=10 items, city="London" |
+| 3  | Schema Validation                              | match user schema, follow contract, all schema fields present                                    |
+| 4  | Header Assertions                              | Content-Type="application/json", X-Request-ID exists, caching disabled                           |
+| 5  | Cookie Assertions                              | session cookie exists, auth_token valid                                                          |
+| 6  | Time / Performance Assertions                  | response <500ms, within SLA limits                                                               |
+| 7  | Database / Side-Effect Assertions              | user exists, order count+1, email sent, record deleted                                           |
+| 8  | Contract / Versioning Assertions               | API version="v2", deprecated fields absent                                                       |
+| 9  | Business Logic Assertions                      | loan rejected if income<limit, discounts applied, user roles updated                             |
+| 10 | Security Assertions                            | authentication required, invalid tokens rejected, sensitive fields hidden                        |
+| 11 | Pagination Assertions                          | next page token, page=1, totalPages>5, items≤20                                                  |
+| 12 | Sorting & Ordering Assertions                  | sorted alphabetically, timestamps descending, prices low→high                                    |
+| 13 | Filtering Assertions                           | only active users, category="Books", no archived records                                         |
+| 14 | Duplication / Uniqueness Assertions            | all IDs unique, no duplicate emails                                                              |
+| 15 | Null / Empty Handling Assertions               | body not empty, notes=null, array empty, missing optional fields ok                              |
+| 16 | Error-Message Assertions                       | error="Invalid credentials", validation error for missing email, code="AUTH_001"                 |
+| 17 | Retry / Idempotency Assertions                 | repeat request same result, no duplicates, PUT replaces resource                                 |
+| 18 | Rate Limiting Assertions                       | 429 Too Many Requests, rate limit headers, quota decreases                                       |
+| 19 | Authorization & Role-Based Assertions          | admin allowed, normal user blocked, request fails without token                                  |
+| 20 | Environment Configuration Assertions           | staging uses mock data, production base URL correct, debug headers hidden                        |
+| 21 | Multi-Step Workflow Assertions                 | step1 resource retrievable, step2 status update, cancelling refunds payment                      |
+| 22 | Webhook / Event Assertions                     | webhook triggered, event ID correct, no duplicates                                               |
+| 23 | File Download / Upload Assertions              | file type PDF, uploaded size matches, content not corrupted                                      |
+| 24 | Localization / Internationalization Assertions | message in Spanish, EU price format, dates en-GB                                                 |
+| 25 | Data Transformation Assertions                 | amount→cents, formatted output matches, fullName=firstName+lastName                              |
+| 26 | Cache Validation                               | response cached, ETag matches, cache refresh on update                                           |
+| 27 | Concurrency & Locking Assertions               | only one request succeeds, item locked during update, concurrent updates rejected                |
+| 28 | Redirection Assertions                         | redirect to login, 301 location header correct                                                   |
+| 29 | Version Compatibility Assertions               | v1 supported, deprecated endpoints warn, v2 includes additional fields                           |
+| 30 | Analytics / Tracking Assertions                | tracking event logged, usage metrics increment, audit log records change                         |
